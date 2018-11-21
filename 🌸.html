@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Анжела 🌸</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;subset=cyrillic" rel="stylesheet">
+
+  <style media="screen">
+    * {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Montserrat", sans-serif;
+      line-height: 100%;
+    }
+    
+    body {
+      background-color: #e5184d;
+    }
+    
+    .container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+      color: #333;
+      text-align: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+    
+    h1 {
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: 500;
+    }
+    
+    ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-direction: row;
+      color: #fff;
+      background-color: #cc1445;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+    }
+    
+    li {
+      padding: 40px;
+      border-radius: 5px;
+      font-size: 25px;
+      text-transform: uppercase;
+      list-style-type: none;
+    }
+    
+    li span {
+      display: block;
+      color: #ffdc29;
+      font-size: 70px;
+      font-weight: 700;
+    }
+    
+    @media only screen and (orientation : portrait) {
+      ul {
+        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+      }
+    
+      li {
+        padding: 4vw;
+        font-size: 4vw;
+      }
+    
+      h1 {
+        margin-bottom: 9vw;
+        font-size: 9vw;
+      }
+    
+      li span {
+        font-size: 18vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1 id="head">Анжела приедет через:</h1>
+    <ul>
+      <li><span id="days"></span>дней</li>
+      <li><span id="hours"></span>часов</li>
+      <li><span id="minutes"></span>минут</li>
+      <li><span id="seconds"></span>секунд</li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+    let countDown = new Date('Dec 28, 2018 10:45:00').getTime(),
+      x = setInterval(function() {
+
+        let now = new Date().getTime(),
+          distance = countDown - now;
+
+        document.getElementById('days').innerText = Math.floor(distance / (day)),
+          document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+          document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+          document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+      }, second)
+  </script>
+</body>
+
+</html>
